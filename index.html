@@ -1,1098 +1,0 @@
-<!-- Full updated HTML with missing sections and Arabic translations added -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>International Conference 2025</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      color: #333;
-      direction: ltr;
-      transition: all 0.3s ease-in-out;
-    }
-   header {
-  background-color: #004d00; /* أخضر داكن */ /*green #003300 #004d00 #006600*/
-  background-image: url('math-pattern.svg'); /* صورة SVG تحتوي رموز رياضية */
-  background-repeat: repeat;
-  background-size: cover;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-}
-
-    nav {
-      background-color: red;
-      padding: 10px;
-      text-align: center;
-      position: relative;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-    nav a:hover {
-      color: #00ff00;
-    }
-    
-.dropdown-content a:hover {
-  background-color: #ddd;
-  color: red; /* الروابط الفرعية داخل القائمة المنسدلة - تتحول إلى أحمر */
-}
-    
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      text-align: left;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 8px 12px;
-      text-decoration: none;
-      display: block;
-      background-color: white;
-    }
-  
-   /* لا تستخدم hover لفتح القوائم */
-.dropdown.active .dropdown-content {
-  display: block;
-}
-
-    section {
-      display: none;
-      padding: 20px;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    footer {
-      background-color: green;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      direction: ltr;
-    }
-    .lang-switch a {
-      color: white;
-      margin-left: 10px;
-      font-weight: normal;
-      cursor: pointer;
-    }
-    .arabic {
-      display: none;
-      direction: rtl;
-/*<!--text-align: right; -->*/
-    }
-    .image-sequence {
-      text-align: center;
-      position: relative;
-    }
-.image-sequence img {
-  display: none;
-  width: 100%;
-  max-width: 500px;
-  height:250px;
-  object-fit: cover;
-  margin: 0 auto;
-}
-
-    .image-sequence img.active {
-      display: block;
-    }
-    .dots {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .dot {
-      height: 10px;
-      width: 10px;
-      margin: 0 4px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .dot.active {
-      background-color: #333;
-    }
-    /*<!-- pour phone-->*/
-    @media (max-width: 768px) {
-  header, nav, footer {
-    text-align: center;
-    padding: 15px;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-  }
-
-  .image-sequence img {
-    width: 100%;
-    height: auto;
-  }
-
-  section {
-    padding: 10px;
-  }
-
-  .lang-switch {
-    position: static;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-}
-/* الصور العامة */
-.header-img {
-  height: 60px;
-}
-
-/* الصور في اليسار */
-
-
-/* الصورة في الوسط */
-
-/*.header-img.center {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-*/
-.right-image {
-  position: absolute;
-  top: 70px;
-  right: 30px;
-}
-.left-image {
-  position: absolute;
-  top: 70px;
-  left: 30px;
-}
-
-
-
- /* شكل الزر */
-   #backToTop {
-  display: none; /* مخفي في البداية */
-  position: fixed;
-  bottom: 20px;
-  right: 20px; /* الافتراضي بالإنجليزية */
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 8px;
-}
-
-#backToTop:hover {
-  background-color: #555;
-}
-
-/* لو كانت الصفحة بالعربية، الزر يروح يسار */
-html[lang="ar"] #backToTop {
-  right: auto;
-  left: 20px;
-}
-
-.menu-toggle {
-  display: none; /* مخفي في الكمبيوتر */
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-  padding: 10px;
-}
-
-nav .nav-links a {
-  display: inline-block; /* روابط افتراضية بالكمبيوتر */
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block; /* يظهر على الهاتف */
-  }
-  nav .nav-links {
-    display: none; /* مخفي افتراضيًا */
-    flex-direction: column;
-    text-align: center;
-  }
-  nav.active .nav-links {
-    display: flex; /* يظهر عند الضغط على الزر */
-  }
-}
-
-/* حجم عادي على الكمبيوتر */
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1.5em;
-}
-p {
-  font-size: 1em;
-}
-
-/* على الهاتف (أقل من 768px عرض الشاشة) */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.3em; /* أصغر */
-    margin-top: 10px; /* ضمان مسافة فوق النصوص */
-  }
-  h2 {
-    font-size: 1.0em; /* أصغر */
-    margin-top: 10px;
-  }
-  p {
-    font-size: 0.8em; /* أصغر */
-    margin-top: 10px;
-  }
-
-
-   
-  
-}
-
-/* الكمبيوتر: لوغوين يمين ويسار */
-.header-logos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0 20px 0;
-}
-
-.header-img {
-  max-width: 120px;
-  height: auto;
-}
-
-/* الهاتف */@media (max-width: 768px) {
-  /* جعل الهيدر flex عمودي */
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* حاوية العناصر الثلاثة أسفل الهيدر */
-  .footer-logos-lang {
-    display: flex;
-    flex-direction: row; /* أفقي */
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* مسافة بين العناصر */
-    margin-top: 15px;
-  }
-
-  /* إزالة أي position absolute على الصور */
-  .footer-logos-lang .right-image,
-  .footer-logos-lang .left-image {
-    position: static;
-    margin: 0;
-  }
-
-  /* صورة أصغر على الهاتف */
-  .footer-logos-lang .header-img {
-    max-width: 60px;
-    height: auto;
-  }
-
-  /* زر اللغة وسط الصف */
-  .footer-logos-lang .lang-switch {
-    position: static;
-    margin: 0;
-    text-align: center;
-  }
-
-  /* إخفاء الهيدر الأصلي للكمبيوتر على الهاتف */
-  .header-logos {
-    display: none;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-  </style>
-  <script>
-    let currentLang = 'en';
-    let imageIndex = 0;
-    let intervalId;
-    
-    function switchLang(lang) {
-      const html = document.documentElement;
-      const body = document.body;
-
-      if (lang === 'ar') {
-        html.lang = 'ar';
-        body.style.direction = 'rtl';
-        document.querySelectorAll('.english').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.arabic').forEach(el => el.style.display = 'block');
-        document.querySelectorAll('nav.english').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('nav.arabic').forEach(el => el.style.display = 'block');
-      } else {
-        html.lang = 'en';
-        body.style.direction = 'ltr';
-        document.querySelectorAll('.english').forEach(el => el.style.display = 'block');
-        document.querySelectorAll('.arabic').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('nav.english').forEach(el => el.style.display = 'block');
-        document.querySelectorAll('nav.arabic').forEach(el => el.style.display = 'none');
-      }
-    }
-
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-
-      const selected = document.getElementById(id);
-      if (selected) selected.classList.add('active');
-    }
-    
-    
-    /*<!--foor image-->*/
-function cycleImages() {
-  const allSequences = document.querySelectorAll('.image-sequence');
-
-  allSequences.forEach((container) => {
-    let localIndex = 0;
-    const images = container.querySelectorAll('img');
-    const dots = container.querySelectorAll('.dot');
-
-    function updateCarousel(index) {
-      images.forEach((img, i) => {
-        img.classList.remove('active');
-        if (i === index) img.classList.add('active');
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.remove('active');
-        if (i === index % dots.length) dot.classList.add('active');
-      });
-    }
-
-    updateCarousel(localIndex);
-
-    let interval = setInterval(() => {
-      localIndex = (localIndex + 1) % images.length;
-      updateCarousel(localIndex);
-    }, 2000);
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        clearInterval(interval);
-        localIndex = i;
-        updateCarousel(i);
-      });
-    });
-  });
-}
-    window.onload = () => {
-      switchLang('en');
-      showSection('about-conference');
-        cycleImages();
-    }
-  </script>
-</head>
-<body>
-
-<header>
-  <!-- الصورة في الوسط -->
-  
- <!--<img src="logo_ens.png" alt="Center Logo" class="header-img center"> -->
-
-<!-- اللوغوين -->
-
-
-  <!-- الصورتان في اليسار -->
-
-
-  <!-- العناوين -->
-  <h1 class="english">International Conference on Nonlinear PDEs <br> and Their Applications 2025.</h1>
-  
-  <h2 class="english"> Higher Normal School of Kouba (ENS-Kouba)</h2>
-
-  <h1 class="arabic"> مؤتمر دولي  حول المعادلات التفاضلية الجزئية غير الخطية<br> وتطبيقاتها 2025 </h1>
-  
-  <h2 class="arabic"> المدرسة العليا للأساتذة - القبة</h2>
-  <p class="english"> 📅 November 30 – December 2, 2025  </p>
- <p class="arabic"> 📅 من 30 نوفمبر إلى 2 ديسمبر 2025 </p> 
-
-  <!-- نص ترحيبي -->
-  <p class="english">Welcome to the official website of the International Conference on Nonlinear PDEs  and Their Applications 2025</p>
-  <p class="arabic">مرحبًا بكم في الموقع الرسمي للمؤتمر الدولي حول المعادلات التفاضلية الجزئية غير الخطية وتطبيقاتها 2025</p>
-  
-  <!-- زر تغيير اللغة -->
-  <!-- عناصر أسفل الهيدر على الهاتف -->
-  <div class="footer-logos-lang">
-    <div class="right-image">
-      <img src="logo_ens1.png" alt="Right Logo" class="header-img">
-    </div>
-    <div class="lang-switch">
-      <a onclick="switchLang('en')">English</a> | 
-      <a onclick="switchLang('ar')">العربية</a>
-    </div>
-    <div class="left-image">
-      <img src="logo_ens1.png" alt="Left Logo" class="header-img">
-    </div>
-  </div>
-</header>
-
-
-<nav class="english">
-<div class="menu-toggle" onclick="toggleMenu(this)">☰</div>
-<div class="nav-links">
-   <div class="dropdown">
-    <a>About</a>
-    <div class="dropdown-content">
-      <a onclick="showSection('about-conference')">The conference</a>
-      <a onclick="showSection('about-ENS-Kouba')"> ENS kouba</a>
-      <a onclick="showSection('about-Laboratory')">Laboratory of "EDPNL&HM"</a>
-    </div>
-  </div>
-  <!--<a onclick="showSection('cfp')">Call for Papers</a> -->  
-    <div class="dropdown">
-    <a>Committee</a>
-    <div class="dropdown-content">
-      <a onclick="showSection('Scientific-Committee')">Scientific Committee</a>
-      <a onclick="showSection('Organizing-Committee')"> Organizing Committee</a>
-    </div>
-  </div>
-  
-  <a onclick="showSection('registration')">Registration</a>
-  <div class="dropdown">
-    <a>Scientific Program</a>
-    <div class="dropdown-content">
-      <a onclick="showSection('program-global')">Global Program</a>
-      <a onclick="showSection('program-algebra')">Algebra Program</a>
-      <a onclick="showSection('program-analyse')">Analysis  Program</a>
-    </div>
-  </div>
-  <a onclick="showSection('sponsors')">Sponsors</a>
-  <a onclick="showSection('contact')">Contact</a>
-</nav>
-
-<nav class="arabic">
-<div class="menu-toggle" onclick="toggleMenu(this)">☰</div>
-<div class="nav-links">
-<div class="dropdown">
-    <a>حول</a>
-    <div class="dropdown-content">
-      <a onclick="showSection('about-conference')">المؤتمر</a>
-      <a onclick="showSection('about-ENS-Kouba')">المدرسة </a>
-      <a onclick="showSection('about-Laboratory')">المخبر </a>
-    </div>
-  </div>
- <!-- <a onclick="showSection('cfp')">دعوة للمشاركة</a> -->
-    <div class="dropdown">
-  <a>اللجنة</a>
-    <div class="dropdown-content">
-  <!--     <a onclick="showSection('Scientific-Committee')">اللجنة العلمية</a>
-      <a onclick="showSection('Organizing-Committee')"> اللجنة التنظيمية</a> -->
-    </div>
-  </div>
-  <a onclick="showSection('registration')">التسجيل</a>
-  <div class="dropdown">
-    <a>البرنامج العلمي</a>
-    <div class="dropdown-content">
-      <a onclick="showSection('program-global')">البرنامج العام</a>
-      <a onclick="showSection('program-algebra')">برنامج الجبر</a>
-      <a onclick="showSection('program-analyse')">برنامج التحليل</a>
-    </div>
-  </div>
-  <a onclick="showSection('sponsors')">الرعاة</a>
-  <a onclick="showSection('contact')">اتصل بنا</a>
-</nav>
-
-<section id="about-conference">
- <div class="image-sequence">
-    <img src="masjid.jpg" alt="Image 1">
-    <img src="ens-kouba.jpg" alt="Image 2">
-    <img src="maqam.jpeg" alt="Image 3">
-    <div class="dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
- <h2 class="english">About the Conference</h2>
-<h2 class="arabic">حول المؤتمر</h2>
-<p class="english">
- On the occasion of the 25th anniversary of the Laboratory of Nonlinear Differential Equations and the History of Mathematics at Higher Normal School of Kouba (ENS-Kouba), the laboratory is organizing an international scientific conference on nonlinear differential equations and their applications, to be held from 30 November to 3 December 2025
-</p>
-<p class="arabic">
-بمناسبة الذكرى الخامسة والعشرين لتأسيس مخبر المعادلات التفاضلية غير الخطية وتاريخ الرياضيات بالمدرسة العليا للأساتذة بالقبة بالجزائر العاصمة، ينظم المخبر مؤتمراً علمياً دولياً حول المعادلات التفاضلية غير الخطية وتطبيقاتها، وذلك في الفترة الممتدة من 30 نوفمبر إلى 3 ديسمبر 2025.
-</p>
-<h3 class="english">Topics of the Conference</h3>
-<ul class="english">
-  <li>Functional analysis of nonlinear PDEs</li>
-  <li>Numerical analysis of nonlinear PDEs</li>
-  <li>Wave propagation and guided waves</li>
-  <li>Calculus of variations</li>
-  <li>Problems in porous media</li>
-</ul>
-<h3 class="arabic">مواضيع المؤتمر </h3>
-<ul class="arabic">
-  <li>تحليل تابعي للمعادلات التفاضلية  ذات المشتقات الجزئية غير الخطية</li>
-  <li>تحليل عددي للمعادلات التفاضلية  ذات المشتقات الجزئية غير الخطية</li>
-  <li>انتشار الموجات والموجات الموجهة</li>
-  <li>حساب التغاير</li>
-  <li>مسائل في الأوساط المسامية</li>
- </ul>
- 
-<h3 class="english">Honorary President</h3>
-<h3 class="arabic">الرئيس الشرفي</h3>
-<p class="english" >Prof. Belal Tahar (Director of ENS-Kouba)</p>
-<p class="arabic" >الأستاذ طاهر بلال (مدير المدرسة العليا للأساتذة بالقبة)</p>
-<h3 class="english">Conference Chair</h3>
-<h3 class="arabic">رئيس المؤتمر</h3>
-<p class="english">Prof. Choutri Abdelaziz</p>
-<p class="arabic">الأستاذ عبد العزيز شوتري</p>
-</section>
-<section id="about-ENS-Kouba">
-    <div class="image-sequence">
-    <img src="basma_bio.jpeg" alt="Image 1">
-    <img src="ens-kouba.jpg" alt="Image 2">
-    <img src="maqam.jpeg" alt="Image 3">
-    <div class="dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-  <div class="english">
-    <h2>ENS-Kouba</h2>
-    
-  <p> detai ... </p>
-  </div>
-  <div class="arabic">
-    <h2>المدرسة العليا للأساتذة بالقبة </h2>
-    <p>تفاصيل حول المدرسة توضع هنا.</p>
-        </div>
-</section>
-
-<section id="about-Laboratory">
-
-    <div class="image-sequence">
-    <img src="masjid.jpg" alt="Image 1">
-        <img src="maqam.jpeg" alt="Image 3">
-    <img src="ens-kouba.jpg" alt="Image 2">
-    <img src="maqam.jpeg" alt="Image 3">
-    <div class="dots">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-  <div class="english">
-    <h2>Laboratory</h2>
-
-<p>
-  The Laboratory of Nonlinear Partial Differential Equations (PDEs) and the History of Mathematics was established in 2000 with four research groups, under the direction of Professor Youcef Atik (may Allah have mercy on him).
-</p>
-
-<p>
-  In 2008, Professor Abdelhafid Mekran assumed the directorship of the laboratory until 2023, 
-  after which he was succeeded by Professor Choutri Abdelaziz, who still serves as its head to this day.
-</p>
-<p>
-  The structure of the laboratory was later expanded to include six research teams:
-</p>
-<ul>
-  <li>Modeling of heat and mass transfer problems in porous media.</li>
-  <li>Study of nonlinear PDEs: equations, systems, and elliptic and parabolic inequalities.</li>
-  <li>Nonlinear convex analysis: relaxation and minimization.</li>
-  <li>Study of certain elliptic and parabolic equations in non-regular domains.</li>
-  <li>Mathematical and numerical analysis of guided mode computation problems in optical fibers: direct and inverse problems, image processing.</li>
-  <li>Analytic number theory and arithmetic functions.</li>
-</ul>
-
-<p>
-  The laboratory has 60 researchers, the majority of whom belong to ENS-Kouba. The others are associate researchers, affiliated with various national universities, having been trained within our laboratory.
-</p>
-
-<p>
-  Since its creation, the laboratory has organized about ten international colloquia and several scientific schools, in partnership with national and European laboratories.
-</p>
-
-<p>
-  It has also trained more than a hundred master’s and doctoral graduates. Some of the research has focused on porous media, in collaboration with Sonatrach, while others were conducted under joint supervision with Sorbonne University (formerly Paris), the University of Pau and the Adour Region, as well as the University of Cartagena in Spain.
-</p>
-
-<p>
-  Four laboratories have emerged from our structure: two at ENS-Kouba, one at the University of Algiers, and another, recently established, at the University of Médéa.
-</p>
-
-  </div>
-  <div class="arabic">
-    <h2>  مخبر المعادلات التفاضلية ذات المشتقات الجزئية غير الخطية وتاريخ الرياضيات</h2>
-<p>
-  تم إنشاء مخبر المعادلات التفاضلية الجزئية غير الخطية وتاريخ الرياضيات سنة 2000 بأربع فرق بحث، تحت إشراف الأستاذ يوسف عتيق رحمه الله.
-</p>
-<p>
-في سنة 2008 تولى الأستاذ عبد الحفيظ مقران إدارة المخبر إلى غاية سنة 2023، 
- ثم خلفه الأستاذ شوتري عبد العزيز و الذي لايزال رئيسًا له إلى غاية اليوم.
-</p>
-
-<p>
-  تم توسيع هيكلة المخبر ليضم ست فرق بحث:
-</p>
-
-<ul>
-  <li>نمذجة مسائل انتقال الحرارة والكتلة في الأوساط المسامية.</li>
-  <li>دراسة المعادلات التفاضلية الجزئية غير الخطية: معادلات، أنظمة، ولا مساوات إهليجية وشبه إهليجية.</li>
-  <li>التحليل المحدب غير الخطي: الاسترخاء والتصغير.</li>
-  <li>دراسة بعض المعادلات الإهليجية وشبه الإهليجية في المجالات غير المنتظمة.</li>
-  <li>التحليل الرياضي والعددي لمسائل حساب الأنماط الموجهة في الألياف البصرية: مسائل مباشرة وعكسية، ومعالجة الصور.</li>
-  <li>نظرية الأعداد التحليلية والدوال الحسابية.</li>
-</ul>
-
-<p>
-  يضم المخبر 60 باحثاً، ينتمي أغلبهم إلى المدرسة العليا للأساتذة – القبة (ENS-Kouba)، والبقية باحثون شركاء من جامعات وطنية مختلفة، تم تكوينهم في إطار المخبر.
-</p>
-
-<p>
-  منذ تأسيسه، نظم المخبر حوالي عشرة ملتقيات دولية وعدة مدارس علمية، بالتعاون مع مخابر وطنية وأوروبية.
-</p>
-
-<p>
-  كما كوّن أكثر من مئة متخرج من الماجستير والدكتوراه. وقد تناولت بعض الأعمال الأوساط المسامية بالتعاون مع شركة سوناطراك، بينما أُنجزت أعمال أخرى في إطار إشراف مشترك مع جامعة السوربون (سابقاً باريس)، وجامعة بو ومنطقة الآدور، إضافة إلى جامعة قرطاجنة في إسبانيا.
-</p>
-
-<p>
-  وقد انبثقت عن هيكلة المخبر أربعة مخابر جديدة: اثنان بالمدرسة العليا للأساتذة – القبة، واحد بجامعة الجزائر، وآخر أُنشئ حديثاً بجامعة المدية.
-</p>
-
-  </div>
-</section>
-
-
-<section id="cfp">  
-</section>
-<section id="Scientific-Committee">
-  <div class="english">
-
-<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">Scientific-Committee
-</h2>       
-
-<ul style="list-style: none; padding: 0; line-height: 1.8;">
-  <li><strong>Prof. Mokrane Abdelhafid</strong> — ENS Kouba</li>
-  <li><strong>Prof. Sadallah Khaled Boubaker</strong> — ENS Kouba</li>
-  <li><strong>Prof. Bousselsal Mahmoud</strong> — ENS Kouba</li>
-  <li><strong>Prof. Derbal Abdellah</strong> — ENS Kouba</li>
-  <li><strong>Prof. Ouazar Elhacène</strong> — ENS Kouba</li>
-  <li><strong>Prof. Choutri Abdelaziz</strong> — ENS Kouba</li>
-  <li><strong>Dr. Hamour Boussabd</strong> — ENS Kouba</li>
-  <li><strong>Dr. Boureghda Abdelouhab</strong> — ENS Kouba</li>
-  <li><strong>Dr. Ait Mahiout Latifa</strong> — ENS Kouba</li>
-  <li><strong>Prof. Ait Mokhtar Ahmed</strong> — ENS Kouba</li>
-  <li><strong>Prof. Moulay Mohamed Said</strong> — USTHB, Alger</li>
-  <li><strong>Prof. Keddour Lemrabet</strong> — Université de Boumerdes</li>
-  <li><strong>Prof. Aibeche Aissa</strong> — Université de Sétif</li>
-  <li><strong>Prof. Youkana Amar</strong> — Université de Batna</li>
-  <li><strong>Prof. Mokhtari Fares</strong> — Université d’Alger</li>
-  <li><strong>Prof. Khelloufi Arezki</strong> — Université de Bejaia</li>
-  <li><strong>Prof. Smail Djebali</strong> — Université Elimam, Arabia Saoudia</li>
-  <li><strong>Prof. Djellouli Rabia</strong> — University of California, USA</li>
-  <li><strong>Prof. Dejehiche Boualem</strong> — University of Stockholm, Sweden</li>
-  <li><strong>Prof. François Murat</strong> — Université de la Sorbonne, France</li>
-  <li><strong>Prof. Mezerdi Brahim</strong> — Université Dharane, Arabia Saoudia</li>
-  <li><strong>Prof. Amrouche Cherif</strong> — Université de Pau et des Pays de l’Adour</li>
-  <li><strong>Prof. Boulmezaoued Tahar Zamane</strong> — Université de Versailles, France</li>
-  <li><strong>Prof. Bendali Abderrahmane</strong> — Université de Toulouse</li>
-  <li><strong>Prof. Mokrane Abdallah</strong> — Université Paris 8</li>
-  <li><strong>Prof. Sergio Ama Plata</strong> — Universidad Politécnica de Cartagena, Espagne</li>
-  <li><strong>Prof. Sonia Busquier Saes</strong> — Universidad Politécnica de Cartagena, Espagne</li>
-  <li><strong>Prof. Giuseppa Rita Crimi</strong> — Università di Catania, Italia</li>
-</ul>
-         
-         
-             
-  </div>
-  
-  <div class="arabic">    
-    <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
-  اللجنة العلمية
-</h2>
-
-<ul style="list-style: none; padding: 0; line-height: 1.8;">
-  <li><strong>الأستاذ مقران عبد الحفيظ</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ سعد الله خالد أبوبكر</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ بوالصلصال  محمود</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ دربال عبد الله</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ وعزار الحسن</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ شوتري عبد العزيز</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الدكتور حمور بوسعدة</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الدكتور بورغدة عبد الوهاب</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الدكتورة آيت محيوت لطيفة</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ آيت مختار أحمد</strong> — المدرسة العليا للأساتذة، القبة</li>
-  <li><strong>الأستاذ مولاي محمد سعيد</strong> — جامعة العلوم والتكنولوجيا، الجزائر</li>
-  <li><strong>الأستاذ قدور لمرابط</strong> — جامعة بومرداس</li>
-  <li><strong>الأستاذ عيبش عيسى</strong> — جامعة سطيف</li>
-  <li><strong>الأستاذ مختاري فارس</strong> — جامعة الجزائر</li>
-  <li><strong>الأستاذ خلوفي أرزقي</strong> — جامعة بجاية</li>
-  <li><strong>الأستاذ إسماعيل جبالي</strong> — جامعة الإمام، المملكة العربية السعودية</li>
-  <li><strong>الأستاذ جلولي ربيعة</strong> — جامعة كاليفورنيا، الولايات المتحدة الأمريكية</li>
-  <li><strong>الأستاذ ديجيحيش بوعلام</strong> — جامعة ستوكهولم، السويد</li>
-  <li><strong>الأستاذ فرانسوا مورات</strong> — جامعة السوربون، فرنسا</li>
-  <li><strong>الأستاذ مزردي إبراهيم</strong> — جامعة الظهران، المملكة العربية السعودية</li>
-  <li><strong>الأستاذ عمروش شريف</strong> — جامعة بُو، فرنسا</li>
-  <li><strong>الأستاذ بلمزاود طاهر زمان</strong> — جامعة فرساي، فرنسا</li>
-  <li><strong>الأستاذ بندالي عبد الرحمن</strong> — جامعة تولوز، فرنسا</li>
-  <li><strong>الأستاذ مقران عبد الله</strong> — جامعة باريس 8، فرنسا</li>
-  <li><strong>الأستاذ سيرجيو أمات بلاتا</strong> — جامعة قرطاجنة التقنية، إسبانيا</li>
-  <li><strong>الأستاذة سونيا بوشكيير </strong> — جامعة قرطاجنة التقنية، إسبانيا</li>
-  <li><strong>الأستاذة جوزيبا ريتا كريمي</strong> — جامعة كاتانيا، إيطاليا</li>
-</ul> 
-  </div>
-  </section>
-  <section id="Organizing-Committee">
-  <div class="english">
-    <h2>Organizing Committee</h2>
- <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
-</h2>    
-  <ul style="list-style: none; padding: 0; line-height: 1.8;">  
-<li>Pr. Choutri Abdelaziz — ENS Kouba</li>   
-
-<li>Dr. Zouaoui Sofiane — ENSTA, Algiers</li>
-
-<li>Dr. Melzi Imane — ENS Kouba</li>
-
-<li>Dr. Souilah Rezak — University of Medea</li>
-
-<li>Dr. Benia Yassine — University of Algiers 1 </li>
-
-<li>Dr. Benhana Hakim Abdelkader — HEC Alger  </li>
-
-<li>Dr. Mokrane Amira — ENS Kouba</li>
-
-<li>Dr. Rezgui Hayat — ENS Kouba</li>
-
-<li>Dr. Hebboule Doudja — ENS Kouba</li>
-
-<li>Dr. Kebir Hacina — ENS Kouba</li>
-
-<li>Dr. Boukassa Saliha — University of Boumerdes</li>
-
-<li>Dr. Mekkaoui Mohammed — ENS Kouba</li>
-
-<li>Pr. Mostefaoui Zahia — ENS Kouba</li>
-
-<li>Dr. Khelifi Hicham — University of Algiers 1 </li>
-
-<li>Dr. Mostefai Mohamed Lamine — University of Laghouat</li>
-
-<li>Dr. Gouasmia Abdelhamid — University of Souk-Ahras</li>
-
-<li>Dr. Bouzehar Aicha — ENS Kouba</li>
-
-<li>Dr. Ammeuri Elkhansaa —  University of Tipaza</li>
-</ul>
-  </div>
-  
-  <div class="arabic">
-
-    <h2>اللجنة المنظمة</h2>
-
-<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
-</h2>    
-<ul style="list-style: none; padding: 0; line-height: 1.8;">  
-
-<li>الأستاذ شوتري عبد العزيز — المدرسة العليا للأساتذة القبة</li>   
-
-<li>الأستاذ زواوي سفيان — المدرسة الوطنية العليا للتكنولوجيات المتقدمة، الجزائر</li>
-
-<li>الأستاذة ملزي إيمان — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذ صويلح رزاق — جامعة المدية</li>
-
-<li>الأستاذ بنية ياسين — جامعة الجزائر 1</li>
-
-<li>الأستاذ بن حنة حكيم عبد القادر — المدرسة العليا للتجارة</li>
-
-<li>الأستاذة مقران أميرة — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذة رزقي حياة — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذة هبول دودجة — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذة كبير حسينة — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذة بوكاسة صليحة — جامعة بومرداس</li>
-
-<li>الأستاذ مكاوي محمد — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذة مصطفاوي زاهية — المدرسة العليا للأساتذة القبة</li>
-
-<li>الأستاذ خليفي هشام — جامعة الجزائر 1</li>
-
-<li>الأستاذ مصطفاي محمد الأمين — جامعة الأغواط</li>
-
-<li>الأستاذ قواسمية عبد الحميد — جامعة سوق أهراس</li>
-
-<li>الأستاذة عموري الخنساء — جامعة تيبازة</li>
-
-<li>الأستاذة بوزهار عائشة — المدرسة العليا للأساتذة القبة</li>
-</ul>
-  </div>
-
-</section>
-
-<section id="registration">
-  <div class="english">
-    <h2>Registration </h2>
-<p>We invite researchers who wish to participate in the conference to send an abstract of their work in English or French to the following email address.</p>
-
-    
-    <h2>Important Dates</h2>
-    <p>Submission deadline: <strong>October 30, 2025</strong>.</p> 
-    <p>Notification of Acceptance: <strong>November 15, 2025</strong>.</p> 
-    
-    <h2>Submission Template</h2>
-    <p> Please use the official LaTeX template when preparing their submissions. Download it here:</p>
-    <p><a href="template_eng.zip" download>📄 Download LaTeX Template (Eng) </a>           <a href="template_fr.zip" download>📄 Download LaTeX Template (Fr)</a></p>
-
-    <h2>Registration Fees</h2>
-    <p>Teachers / Researchers: <strong>10000 DA</strong></p> 
-    <p>PhD Students: <strong>5000 DA</strong></p> 
-    <p><strong>Registration fees include:</strong> Lunches, dinners, and coffee breaks.
-    </p> 
- 
-
-
-
-  <div style="max-width:500px; margin:auto; padding:30px; text-align:center; 
-              border:2px solid #ccc; border-radius:15px; 
-              background-color:#f9f9f9; box-shadow: 0 6px 12px rgba(0,0,0,0.15);">
-    
-    <h2 style="font-size:28px; margin-bottom:20px; color:#333;">Registration</h2>
-    <p style="font-size:18px; margin-bottom:30px; color:#555;">Please register from here</p>
-    
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfKGVNc5xBR42ngfeaWhR3vfFTMdDUYwGzxUpsaq_7FlvXtnQ/viewform?usp=header" target="_blank"
-       style="display:inline-block; padding:15px 40px; font-size:18px; font-weight:bold; 
-              background-color:#28a745; color:white; text-decoration:none; border-radius:8px;
-              transition: background-color 0.3s, transform 0.2s;">
-      Register
-    </a>
-  </div>
-<script>
-  // إضافة تأثير hover على الزر
-  const btn = document.querySelector('#registration a');
-  btn.addEventListener('mouseenter', () => {
-    btn.style.backgroundColor = '#218838';
-    btn.style.transform = 'scale(1.05)';
-  });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.backgroundColor = '#28a745';
-    btn.style.transform = 'scale(1)';
-  });
-</script>
-   
-</div>
-  
-  <div class="arabic">
-    <h2>التسجيل</h2>
-   <p>  ندعو الباحثين  الراغبين بالمشاركة في المؤتمر بارسال ملخص أعمالهم بالانجليزية او بالفرنسية   الى العنوان البريدي </p> 
-
-
-  <h2>تواريخ هامة</h2>
-  <p>آخر موعد لتقديم المشاركات: <strong>30 أكتوبر 2025</strong>.</p>
-  <p>إشعار القبول: <strong>15 نوفمبر 2025</strong>.</p>
-
-  <h2>قالب إرسال الملخص</h2>
-  <p>يُرجى استخدام القالب الرسمي (LaTeX) عند إعداد الملخص . حمّله من هنا:</p>
-  <p><a href="template_eng.zip" download>📄  (انجليزي) تحميل قالب LaTeX</a> <a href="template_fr.zip" download>📄  (فرنسي) تحميل قالب LaTeX</a></p>
-
-  <h2>رسوم التسجيل</h2>
-  <p>الأساتذة والباحثون: <strong>10000 دج</strong>.</p>
-  <p>طلبة الدكتوراه: <strong>5000 دج</strong>.</p>
-  <p><strong>رسوم التسجيل تشمل:</strong>  وجبات الغداء و العشاء واستراحات القهوة .</p>   
-  
-  
-
-    <div style="max-width:500px; margin:auto; padding:30px; text-align:center; 
-              border:2px solid #ccc; border-radius:15px; 
-              background-color:#f9f9f9; box-shadow: 0 6px 12px rgba(0,0,0,0.15);">
-    
-    <h2 style="font-size:28px; margin-bottom:20px; color:#333;">التسجيل</h2>
-    <p style="font-size:18px; margin-bottom:30px; color:#555;">يرجى التسجيل من هنا</p>
-    
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYVUpTOIDHUZ1dzZsQkNmXr-KLGkU1f5mU214v3A0VsUBdXA/viewform?usp=header" target="_blank"
-       style="display:inline-block; padding:15px 40px; font-size:18px; font-weight:bold; 
-              background-color:#28a745; color:white; text-decoration:none; border-radius:8px;
-              transition: background-color 0.3s, transform 0.2s;">
-      التسجيل
-    </a>
-  </div>
-
-<script>
-  // تأثير hover على الزر
-  const btnAr = document.querySelector('#registration-ar a');
-  btnAr.addEventListener('mouseenter', () => {
-    btnAr.style.backgroundColor = '#218838';
-    btnAr.style.transform = 'scale(1.05)';
-  });
-  btnAr.addEventListener('mouseleave', () => {
-    btnAr.style.backgroundColor = '#28a745';
-    btnAr.style.transform = 'scale(1)';
-  });
-</script>
-  </div>
-</section>
-
-<section id="sponsors">
-  <div class="english">
-    <h2>Sponsors</h2>
-    <p>Thanks to our sponsors for their support.</p>
-  </div>
-  <div class="arabic">
-    <h2>الرعاة</h2>
-    <p>شكرًا لرعاتنا على دعمهم.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="english">
-    <h2>Contact</h2>
-    <p>Get in touch with the conference organizers.</p>
-  </div>
-  <div class="arabic">
-    <h2>اتصل بنا</h2>
-    <p>تواصل مع منظمي المؤتمر.</p>
-  </div>
-</section>
-
-<section id="program-global">
-  <div class="english">
-    <h2>Global Program</h2>
-    <p>Details about the global program go here.</p>
-  </div>
-  <div class="arabic">
-    <h2>البرنامج العلمي</h2>
-    <p>تفاصيل حول البرنامج العلمي توضع هنا.</p>
-  </div>
-</section>
-
-<section id="program-algebra">
-  <div class="english">
-    <h2> Algebra Program</h2>
-    <p>Details about the algebra program go here.</p>
-  </div>
-  <div class="arabic">
-    <h2>برنامج الجبر</h2>
-    <p>تفاصيل حول برنامج الجبر توضع هنا.</p>
-  </div>
-</section>
-
-<section id="program-analyse">
-  <div class="english">
-    <h2>Analysis Program</h2>
-    <p>Details about the analyse program go here.</p>
-  </div>
-  <div class="arabic">
-    <h2>برنامج التحليل</h2>
-    <p>تفاصيل حول برنامج التحليل توضع هنا.</p>
-  </div>
-</section>
-  <!-- زر العودة للأعلى -->
-  <button id="backToTop" title="Back to top">↑</button>
-
-  <!-- سكريبت زر العودة للأعلى -->
-  <script>
-    let mybutton = document.getElementById("backToTop");
-
-    // إظهار/إخفاء الزر عند التمرير
-    window.onscroll = function() {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    };
-
-    // التمرير السلس للأعلى عند الضغط
-    mybutton.onclick = function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
- function toggleMenu(btn){
-  const nav = btn.parentElement;
-  nav.classList.toggle('active');
-}   
-  // فتح/إغلاق القوائم الفرعية عند الضغط
-document.querySelectorAll('nav .dropdown > a').forEach(title => {
-  title.addEventListener('click', e => {
-    e.preventDefault(); // يمنع الانتقال
-const parent = title.parentElement;
-
-// غلق جميع القوائم الأخرى
-document.querySelectorAll('nav .dropdown').forEach(d => {
-  if (d !== parent) d.classList.remove('active');
-});
-
-// فتح/غلق الحالية
-parent.classList.toggle('active');
-
-
-  });
-});
-
-// إغلاق القائمة بالكامل فقط عند اختيار رابط يؤدي لعرض قسم
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    // إذا الرابط يحتوي على onclick (أي يعرض قسم)، نغلق القائمة
-    if (link.hasAttribute('onclick')) {
-      // إخفاء كل القوائم الفرعية
-      document.querySelectorAll('nav .dropdown').forEach(dd => dd.classList.remove('active'));
-      // إغلاق القائمة الرئيسية على الهاتف
-      document.querySelectorAll('nav').forEach(nav => nav.classList.remove('active'));
-    }
-  });
-});
-
-  
-    
-  </script>
-</body>
-</html>
